@@ -1,0 +1,19 @@
+<p class="user">Lists of {{user.username.toUpperCase()}}</p>
+<div class="lists">
+    <div *ngFor="let list of lists" class="publication">
+        <div class="one-list">
+            <p class="list-title">{{list.title}}</p>
+            <button (click)="newTask(list._id)" value="{{list.id}}" class="add-btn">Add Task</button>
+            <button (click)="deleteList(list.id)" class="delete-btn">Delete List</button>
+
+            <div *ngFor="let task of tasks" >
+                <div *ngIf="list.id === task.list_id" class="task">
+                    <p class="task-title">{{task.text}}</p>
+                    <button (click)="deleteTask(task.id)" class="delete-btn">Delete Task</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
